@@ -17,6 +17,8 @@
                             <li data-target="#myCarousel" data-slide-to="1"></li>
                             <li data-target="#myCarousel" data-slide-to="2"></li>
                             <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4"></li>
+                            <li data-target="#myCarousel" data-slide-to="5"></li>
                         </ul>
 
                         <!-- The slideshow -->
@@ -32,7 +34,7 @@
                                         <h4 class="card-title">University Student Admission System</h4>
                                         <p
                                             class="card-text"
-                                        >Some quick example text to build on the card title.</p>
+                                        >It is a model–view–controller web application framework developed atop the Node.js environment.</p>
                                     </div>
                                 </div>
                             </div>
@@ -47,11 +49,9 @@
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Registration Page</h4>
-                                        <p class="card-text">
-                                            After successful registration, an activation email will
-                                            be sent to the registered email account for
-                                            further action.
-                                        </p>
+                                        <p
+                                            class="card-text"
+                                        >After successful registration, the applicant will be given an account activation link via email.</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,10 +66,7 @@
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Application Form</h4>
-                                        <p class="card-text">
-                                            With supporting text below as a natural lead-in to
-                                            additional content.
-                                        </p>
+                                        <p class="card-text">The form includes input validation.</p>
                                     </div>
                                 </div>
                             </div>
@@ -84,10 +81,43 @@
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Admission Staff Panel</h4>
-                                        <p class="card-text">
-                                            With supporting text below as a natural lead-in to
-                                            additional content.
-                                        </p>
+                                        <p
+                                            class="card-text"
+                                        >Admission Staff can approve or decline applications.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <img
+                                        class="img-fluid"
+                                        alt="100%x280"
+                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
+                                        src="../assets/select_interview_timeslot.png"
+                                    />
+                                    <div class="card-body">
+                                        <h4 class="card-title">Admission Staff Panel</h4>
+                                        <p
+                                            class="card-text"
+                                        >If the applicant is given an interview opportunity, Admission Staff can arrange an interview for the applicant and professor.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <img
+                                        class="img-fluid"
+                                        alt="Application Form"
+                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
+                                        src="../assets/professor_panel.png"
+                                    />
+                                    <div class="card-body">
+                                        <h4 class="card-title">Professor Panel</h4>
+                                        <p
+                                            class="card-text"
+                                        >Professor can give interview opportunities, and accept/reject applications.</p>
                                     </div>
                                 </div>
                             </div>

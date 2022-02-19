@@ -48,11 +48,13 @@ export default {
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 50) {
                     document.getElementById('navbar_top').classList.add('fixed-top');
+                    document.getElementById('navbar-container').classList.add('fixed-top');
                     // add padding top to show content behind navbar
                     var navbar_height = document.querySelector('.navbar').offsetHeight;
                     document.body.style.paddingTop = navbar_height + 'px';
                 } else {
                     document.getElementById('navbar_top').classList.remove('fixed-top');
+                    document.getElementById('navbar-container').classList.remove('fixed-top');
                     // remove padding top from body
                     document.body.style.paddingTop = '0';
                 }
@@ -62,8 +64,10 @@ export default {
                 var marginTop = parseInt($('#about').css("marginTop").replace('px', ''))
                 if (window.scrollY > top + marginTop) {
                     $('#navbar_top').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
+                    $('#navbar-container').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
                 } else {
                     $('#navbar_top').css({ "box-shadow": "none" })
+                    $('#navbar-container').css({ "box-shadow": "none" })
                 }
             });
         });
@@ -74,7 +78,7 @@ export default {
 <template>
     <div id="header" class="site-header">
         <div class="main-menu" style="margin-top: 8px">
-            <!-- Navigation bar for extra large -->
+            <!-- Navigation bar for large or extra-large device -->
             <div id="topNav" class="d-none d-lg-block">
                 <nav
                     id="navbar_top"
@@ -85,7 +89,10 @@ export default {
                         <div class="navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" @click="scrollToTop(), goToHomeSection()">Home</a>
+                                    <a
+                                        class="nav-link"
+                                        @click="scrollToTop(), goToHomeSection()"
+                                    >Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/#about">About</a>
@@ -102,7 +109,7 @@ export default {
                 </nav>
             </div>
 
-            <!-- Navigation bar for Large -->
+            <!-- Navigation bar for smaller devices -->
             <div id="topNav" class="d-block d-lg-none">
                 <div id="navbar-container">
                     <div class="bar-Icon">
@@ -123,7 +130,10 @@ export default {
                             <div class="navbar-collapse" id="navbarTogglerDemo03">
                                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link" @click="scrollToTop()">Home</a>
+                                        <a
+                                            class="nav-link"
+                                            @click="scrollToTop(), goToHomeSection()"
+                                        >Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/#about">About</a>
@@ -145,6 +155,10 @@ export default {
 </template>
 
 <style scoped>
+.svg-inline--fa {
+    height: 1.3em;
+}
+
 .main-menu {
     display: block;
 }
@@ -178,7 +192,7 @@ export default {
     list-style: none;
 }
 
-/* #region - Navigation bar for Large */
+/* #region - Navigation bar for small devices */
 
 #menu {
     display: none;
@@ -205,7 +219,7 @@ export default {
 
 #navbar-container {
     width: 100%;
-    background-color: #f7f7f7;
+    background-color: #fff;
     padding-top: 10px;
     padding-bottom: 10px;
 }
