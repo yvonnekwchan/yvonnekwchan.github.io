@@ -20,7 +20,7 @@ export default {
         scrollToTop() {
             window.scrollTo(0, 0);
         },
-        goToPricing() {
+        goToHomeSection() {
             this.$router.push('/');
         }
     },
@@ -85,7 +85,7 @@ export default {
                         <div class="navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" @click="scrollToTop(), goToPricing()">Home</a>
+                                    <a class="nav-link" @click="scrollToTop(), goToHomeSection()">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/#about">About</a>
@@ -126,13 +126,13 @@ export default {
                                         <a class="nav-link" @click="scrollToTop()">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#about">About</a>
+                                        <a class="nav-link" href="/#about">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#resume">Resume</a>
+                                        <a class="nav-link" href="/#resume">Resume</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#projects">Projects</a>
+                                        <a class="nav-link" href="/#projects">Projects</a>
                                     </li>
                                 </ul>
                             </div>
