@@ -163,10 +163,6 @@ export default {
     display: block;
 }
 
-.site-header {
-    margin-bottom: 55px;
-}
-
 #navbar_top {
     background-color: #fff;
 }

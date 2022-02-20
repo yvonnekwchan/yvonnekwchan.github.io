@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <section id="projectDesc" class="page-section bg-half-ring-right bg-half-ring-top">
+    <section id="projectDesc" class="page-section bg-half-ring-right bg-half-ring-top" style="margin-top: 30px;">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-7 col-md-12">
@@ -19,6 +19,7 @@
                             <li data-target="#myCarousel" data-slide-to="3"></li>
                             <li data-target="#myCarousel" data-slide-to="4"></li>
                             <li data-target="#myCarousel" data-slide-to="5"></li>
+                            <li data-target="#myCarousel" data-slide-to="6"></li>
                         </ul>
 
                         <!-- The slideshow -->
@@ -27,14 +28,14 @@
                                 <div class="card">
                                     <video
                                         src="../assets/demo.mp4"
-                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
+                                       
                                         controls
                                     ></video>
                                     <div class="card-body">
                                         <h4 class="card-title">University Student Admission System</h4>
                                         <p
                                             class="card-text"
-                                        >It is a model–view–controller web application framework developed atop the Node.js environment.</p>
+                                        >It is a model–view–controller web application developed atop the Node.js environment.</p>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +45,6 @@
                                     <img
                                         class="img-fluid"
                                         alt="100%x280"
-                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
                                         src="../assets/registration_page.png"
                                     />
                                     <div class="card-body">
@@ -61,12 +61,11 @@
                                     <img
                                         class="img-fluid"
                                         alt="Application Form"
-                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
                                         src="../assets/application_form.png"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Application Form</h4>
-                                        <p class="card-text">The form includes input validation.</p>
+                                        <p class="card-text">The form includes input validation. If necessary, applicants can save the form inputs and continue finishing the form next time.</p>
                                     </div>
                                 </div>
                             </div>
@@ -76,14 +75,13 @@
                                     <img
                                         class="img-fluid"
                                         alt="100%x280"
-                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
                                         src="../assets/admin_panel.png"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Admission Staff Panel</h4>
                                         <p
                                             class="card-text"
-                                        >Admission Staff can approve or decline applications.</p>
+                                        >Admission staff can approve or decline submitted applications.</p>
                                     </div>
                                 </div>
                             </div>
@@ -93,14 +91,31 @@
                                     <img
                                         class="img-fluid"
                                         alt="100%x280"
-                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
+                                       
                                         src="../assets/select_interview_timeslot.png"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Admission Staff Panel</h4>
                                         <p
                                             class="card-text"
-                                        >If the applicant is given an interview opportunity, Admission Staff can arrange an interview for the applicant and professor.</p>
+                                        >Admission staff can arrange interviews for eligible applicants and professors.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <img
+                                        class="img-fluid"
+                                        alt="100%x280"
+                                       
+                                        src="../assets/send_email.png"
+                                    />
+                                    <div class="card-body">
+                                        <h4 class="card-title">Admission Staff Panel</h4>
+                                        <p
+                                            class="card-text"
+                                        >Admission staff can send interview invitation to eligible applicants.</p>
                                     </div>
                                 </div>
                             </div>
@@ -110,14 +125,13 @@
                                     <img
                                         class="img-fluid"
                                         alt="Application Form"
-                                        style="width:100%; aspect-ratio: 670/377; object-fit: cover; border-radius: 10px 10px 0px 0px;"
                                         src="../assets/professor_panel.png"
                                     />
                                     <div class="card-body">
                                         <h4 class="card-title">Professor Panel</h4>
                                         <p
                                             class="card-text"
-                                        >Professor can give interview opportunities, and accept/reject applications.</p>
+                                        >Professor can give interview opportunities to applicants, and accept/reject approved applications.</p>
                                     </div>
                                 </div>
                             </div>
@@ -184,12 +198,6 @@
 </template>
 
 <style scoped>
-.img.object-fit .object-fit-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    -o-object-fit: cover;
-}
 .technologies li span:first-child {
     font-weight: 700;
 }
@@ -280,6 +288,11 @@ video {
     border-radius: 10px;
 }
 
+
+.card-body {
+    height: 170px;
+}
+
 .card-text {
     min-height: 40px;
     line-height: 1.3;
@@ -299,9 +312,9 @@ video {
 .carousel-inner video {
     width: 100%;
     height: 100%;
-}
-
-.card-body {
-    height: 170px;
+    aspect-ratio: 670/377;
+    object-fit: cover;
+    -o-object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
 }
 </style>

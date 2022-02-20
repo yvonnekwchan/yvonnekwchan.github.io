@@ -1,5 +1,5 @@
 <template>
-     <section id="home" class="page-section">
+     <section id="home" class="page-section" style="margin-top: 55px;">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-10 col-lg-9 col-md-12" style="margin-bottom: 125px; margin-left: 15px;">

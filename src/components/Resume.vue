@@ -98,7 +98,7 @@ export default {
                                 Hospital
                             </template>
                             I was mainly responsible for developing java applications. I also assisted in
-                            carrying system tests and conducting user training on system usage.
+                            carrying out system tests and conducting user training on system usage.
                         </ResumeWrap>
 
                         <ResumeWrap>

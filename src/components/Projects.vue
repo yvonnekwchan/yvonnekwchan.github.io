@@ -11,7 +11,7 @@ import UniversityStudentAdmissionSystemView from '../views/AdmissionSystemView.v
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="card card-post">
                             <div class="card-top position-relative">
-                                <a href="/chankawai1130.github.io/to-do-list/" class="" title="Todo List">
+                                <a href="/to-do-list" class="" title="Todo List">
                                     <div class="img object-fit overflow-hidden">
                                         <div class="object-fit-cover transform-scale-h">
                                             <img src="https://hrmcdn-13a1c.kxcdn.com/images/hr-sg/content-images/priya-june-2020-patrick-tay-work-from-home-lead-istock.jpg" alt="Todo List"
@@ -27,7 +27,7 @@ import UniversityStudentAdmissionSystemView from '../views/AdmissionSystemView.v
                             </div>
                             <div class="card-body border">
                                 <h5 class="card-title">
-                                    <a href="/chankawai1130.github.io/to-do-list/" class="" title="Todo List">
+                                    <a href="/to-do-list" class="" title="Todo List">
                                         <p style="vertical-align: inherit;">Todo List Application</p>
                                     </a>
                                 </h5>
@@ -39,7 +39,7 @@ import UniversityStudentAdmissionSystemView from '../views/AdmissionSystemView.v
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="card card-post">
                             <div class="card-top position-relative">
-                                <a href="/chankawai1130.github.io/university-student-admission-system/" class="" title="Real Estate Rental System">
+                                <a href="/real-estate-rental-system" class="" title="Real Estate Rental System">
                                     <div class="img object-fit overflow-hidden">
                                         <div class="object-fit-cover transform-scale-h">
                                             <img src="https://d1ngglk168riv7.cloudfront.net/n/wp-content/uploads/2020/10/04182006/Main-Picture-scaled.jpg" alt="Real Estate Rental System" class="card-top-img"></div>
@@ -54,7 +54,7 @@ import UniversityStudentAdmissionSystemView from '../views/AdmissionSystemView.v
                             </div>
                             <div class="card-body border">
                                 <h5 class="card-title">
-                                    <a href="/chankawai1130.github.io/university-student-admission-system/" class="" title="Real Estate Rental System">
+                                    <a href="/real-estate-rental-system" class="" title="Real Estate Rental System">
                                         <p style="vertical-align: inherit;">Real Estate Rental System</p>
                                     </a>
                                 </h5>
