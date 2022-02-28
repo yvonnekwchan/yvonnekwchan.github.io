@@ -1,7 +1,3 @@
-<script>
-import UniversityStudentAdmissionSystemView from '../views/AdmissionSystemView.vue'
-</script>
-
 <template>
      <section id="projects" class="project-area section-paddingTop page-section pale-pink">
             <h2 style="text-align: center;">My <span class="highlight">Projects</span></h2>

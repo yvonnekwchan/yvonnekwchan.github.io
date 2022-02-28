@@ -13,6 +13,16 @@ const router = createRouter({
       path: '/university-student-admission-system',
       name: 'universityStudentAdmissionSystem',
       component: () => import('../views/AdmissionSystemView.vue')
+    },
+    {
+      path: '/real-estate-rental-system',
+      name: 'realEstateRentalSystem',
+      component: () => import('../views/realEstateRentalSystemView.vue')
+    },
+    {
+      path: '/to-do-list',
+      name: 'todoListApplication',
+      component: () => import('../views/TodoListView.vue')
     }
   ]
 })

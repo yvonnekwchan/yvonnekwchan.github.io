@@ -1,10 +1,6 @@
 <script setup>
 </script>
 
-<script>
-
-</script>
-
 <template>
     <section id="projectDesc" class="page-section bg-half-ring-right bg-half-ring-top" style="margin-top: 30px;">
         <div class="container">
@@ -185,10 +181,10 @@
                     <ul>
                         <li>
                             <a
-                                href="https://github.com/chankawai1130/FinalYearProject"
+                                href="https://github.com/yvonnekwchan/university-student-admission-system"
                                 target="_blank"
                                 id="fyp-github-link"
-                            >https://github.com/chankawai1130/FinalYearProject</a>
+                            >https://github.com/yvonnekwchan/university-student-admission-system</a>
                         </li>
                     </ul>
                 </div>

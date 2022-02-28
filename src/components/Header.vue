@@ -156,7 +156,7 @@ export default {
 
 <style scoped>
 .svg-inline--fa {
-    height: 1.3em;
+    height: 1.7em;
 }
 
 .main-menu {
