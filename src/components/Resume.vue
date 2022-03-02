@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-    <section id="resume" class="resume-area section-paddingTop page-section">
+    <section id="resume" class="resume-area section-padding page-section">
         <div class="container">
             <h2>
                 My

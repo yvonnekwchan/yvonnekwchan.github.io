@@ -1,5 +1,5 @@
 <template>
-    <section id="about" class="about-area section-paddingTop page-section pale-pink">
+    <section id="about" class="about-area section-padding page-section pale-pink">
         <div class="container">
             <div class="row" style="display: flex; justify-content: flex-end">
                 <div class="col-lg-7 col-md-12" style="padding-left: 30px; padding-right: 15px;">

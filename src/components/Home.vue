@@ -2,7 +2,7 @@
      <section id="home" class="page-section" style="margin-top: 55px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-10 col-lg-9 col-md-12" style="margin-bottom: 125px; margin-left: 15px;">
+                    <div class="col-xl-10 col-lg-9 col-md-12" style="margin-bottom: 105px; margin-left: 15px;">
                         <span class="subheading">Hey! I am</span>
                         <div class="title">
                             <h1>Yvonne Chan<span class="dot">.</span></h1>

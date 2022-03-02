@@ -172,19 +172,19 @@ section {
     display: inline-block;
 }
 
-.section-paddingTop {
+.section-padding {
     display: block;
     padding: 90px 0;
 }
 
 @media (max-width: 991px) {
-    .section-paddingTop {
+    .section-padding {
         padding: 60px 0;
     }
 }
 
 #about {
-    margin-top: 8.13rem;
+    margin-top: 7.5rem;
 }
 
 #projects {
