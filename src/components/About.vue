@@ -35,7 +35,7 @@
 
                     <a
                         id="downloadLink"
-                        href="Yvonne%20Chan%20-%20Resume.pdf"
+                        href="../assets/Yvonne Chan - CV.pdf"
                         target="_blank"
                         type="application/octet-stream"
                         download="Yvonne Chan - Resume"
