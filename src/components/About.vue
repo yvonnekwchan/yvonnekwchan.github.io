@@ -36,7 +36,7 @@
                     <a id="downloadLink" href="Yvonne Chan - CV.pdf" target="_blank"
                         type="application/octet-stream" download="Yvonne Chan - Resume">
                         <button id="cv-download-btn" type="button" class="btn btn-primary mt-5">
-                            <span>Download Cv</span>
+                            <span>Download CV</span>
                         </button>
                     </a>
                 </div>

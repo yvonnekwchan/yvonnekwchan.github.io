@@ -1,96 +1,115 @@
 <template>
-     <section id="projects" class="project-area section-padding page-section pale-pink">
-            <h2 style="text-align: center;">My <span class="highlight">Projects</span></h2>
-            <div class="container">
-                <div class="row grid">
-                    <!-- Todo List -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="card card-post">
-                            <div class="card-top position-relative">
-                                <a href="/to-do-list" class="" title="Todo List">
-                                    <div class="img object-fit overflow-hidden">
-                                        <div class="object-fit-cover transform-scale-h">
-                                            <img src="https://hrmcdn-13a1c.kxcdn.com/images/hr-sg/content-images/priya-june-2020-patrick-tay-work-from-home-lead-istock.jpg" alt="Todo List"
-                                                class="card-top-img"></div>
+    <section id="projects" class="project-area section-padding page-section pale-pink">
+        <h2 style="text-align: center;">My <span class="highlight">Projects</span></h2>
+        <div class="container">
+            <div class="row grid">
+                <!-- Todo List -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-post">
+                        <div class="card-top position-relative">
+                            <RouterLink to="/to-do-list" class="" title="Todo List">
+                                <div class="img object-fit overflow-hidden">
+                                    <div class="object-fit-cover transform-scale-h">
+                                        <img src="https://hrmcdn-13a1c.kxcdn.com/images/hr-sg/content-images/priya-june-2020-patrick-tay-work-from-home-lead-istock.jpg"
+                                            alt="Todo List" class="card-top-img">
                                     </div>
-                                </a>
-                                <div class="card-category">
-                                    <a href="#projects" class="btn btn-sm btn-light transform-scale-h border-0" title="Mobile App">
-                                        <span style="vertical-align: inherit;">Mobile App
-                                        </span>
-                                    </a>
                                 </div>
-                            </div>
-                            <div class="card-body border">
-                                <h5 class="card-title">
-                                    <a href="/to-do-list" class="" title="Todo List">
-                                        <p style="vertical-align: inherit;">Todo List Application</p>
-                                    </a>
-                                </h5>
+                            </RouterLink>
+                            <div class="card-category">
+                                <a href="#projects" class="btn btn-sm btn-light transform-scale-h border-0"
+                                    title="Mobile App">
+                                    <span style="vertical-align: inherit;">Mobile App
+                                    </span>
+                                </a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Real Estate Rental System -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="card card-post">
-                            <div class="card-top position-relative">
-                                <a href="/real-estate-rental-system" class="" title="Real Estate Rental System">
-                                    <div class="img object-fit overflow-hidden">
-                                        <div class="object-fit-cover transform-scale-h">
-                                            <img src="https://d1ngglk168riv7.cloudfront.net/n/wp-content/uploads/2020/10/04182006/Main-Picture-scaled.jpg" alt="Real Estate Rental System" class="card-top-img"></div>
-                                    </div>
-                                </a>
-                                <div class="card-category">
-                                    <a href="#projects" class="btn btn-sm btn-light transform-scale-h border-0" title="Mobile App">
-                                        <span style="vertical-align: inherit;">Mobile App
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body border">
-                                <h5 class="card-title">
-                                    <a href="/real-estate-rental-system" class="" title="Real Estate Rental System">
-                                        <p style="vertical-align: inherit;">Real Estate Rental System</p>
-                                    </a>
-                                </h5>
-                            </div>
+                        <div class="card-body border">
+                            <h5 class="card-title">
+                                <RouterLink to="/to-do-list" class="display-text" title="Todo List">Todo List
+                                    Application</RouterLink>
+                            </h5>
                         </div>
                     </div>
-
-                    <!-- University Student Admission System -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="card card-post">
-                            <div class="card-top position-relative">
-                                <a href="/university-student-admission-system" class="" title="University Student Admission System">
-                                    <div class="img object-fit overflow-hidden">
-                                        <div class="object-fit-cover transform-scale-h"><img src="https://images.unsplash.com/photo-1587301669187-732ea66e7617?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHdvcmslMjBmcm9tJTIwaG9tZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="University Student Admission System"
-                                                class="card-top-img"></div>
-                                    </div>
-                                </a>
-                                <div class="card-category">
-                                    <a href="#projects" class="btn btn-sm btn-light transform-scale-h border-0" title="Web App">
-                                        <span style="vertical-align: inherit;">
-                                            <span style="vertical-align: inherit;">Web App
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body border">
-                                <h5 class="card-title">
-                                    <a href="/university-student-admission-system" class="" title="University Student Admission System">
-                                       <p style="vertical-align: inherit;">University Student Admission System</p>
-                                    </a>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Real Estate Rental System -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-post">
+                        <div class="card-top position-relative">
+                            <RouterLink to="/real-estate-rental-system"  class="" title="Real Estate Rental System">
+                                <div class="img object-fit overflow-hidden">
+                                    <div class="object-fit-cover transform-scale-h">
+                                        <img src="https://d1ngglk168riv7.cloudfront.net/n/wp-content/uploads/2020/10/04182006/Main-Picture-scaled.jpg"
+                                            alt="Real Estate Rental System" class="card-top-img">
+                                    </div>
+                                </div>
+                            </RouterLink>
+                            <div class="card-category">
+                                <a href="#projects" class="btn btn-sm btn-light transform-scale-h border-0"
+                                    title="Mobile App">
+                                    <span style="vertical-align: inherit;">Mobile App
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body border">
+                            <h5 class="card-title">
+                                <RouterLink to="/real-estate-rental-system" 
+                                    class="display-text" title="Real Estate Rental System">Real Estate Rental System</RouterLink>
+                                <!-- <a href="/real-estate-rental-system" class="" title="Real Estate Rental System">
+                                    <p style="vertical-align: inherit;">Real Estate Rental System</p>
+                                </a> -->
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- University Student Admission System -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-post">
+                        <div class="card-top position-relative">
+                            <RouterLink to="/university-student-admission-system" class=""
+                                title="University Student Admission System">
+                                <div class="img object-fit overflow-hidden">
+                                    <div class="object-fit-cover transform-scale-h"><img
+                                            src="https://images.unsplash.com/photo-1587301669187-732ea66e7617?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHdvcmslMjBmcm9tJTIwaG9tZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                                            alt="University Student Admission System" class="card-top-img"></div>
+                                </div>
+                            </RouterLink>
+                            <div class="card-category">
+                                <a href="#projects" class="btn btn-sm btn-light transform-scale-h border-0"
+                                    title="Web App">
+                                    <span style="vertical-align: inherit;">
+                                        <span style="vertical-align: inherit;">Web App
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body border">
+                            <h5 class="card-title">
+                                <RouterLink to="/university-student-admission-system" 
+                                    class="display-text" title="University Student Admission System">University Student
+                                    Admission System</RouterLink>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </section>
+        </div>
+    </section>
 </template>
+
+<script>
+export default {
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+    }
+}
+</script>
 
 <style scoped>
 .card {
@@ -199,7 +218,7 @@
 }
 
 .border {
-    border: 1px solid #f3f3f3!important
+    border: 1px solid #f3f3f3 !important
 }
 
 @media (max-width: 575px) {
@@ -214,9 +233,14 @@
     margin-bottom: 0px !important;
 }
 
+.card-title .display-text {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 0px !important;
+}
+
 .card-title {
     margin-top: 25px !important;
     margin-bottom: 25px !important;
 }
-
 </style>
