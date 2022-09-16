@@ -91,6 +91,17 @@ export default {
                             <template #icon>
                                 <i class="fa-solid fa-briefcase"></i>
                             </template>
+                            <template #date>Jun 2021 – Present</template>
+                            <template #position>Solutions Analyst</template>
+                            <template #organization>
+                               The Hong Kong Electric Company, Limited
+                            </template>
+                            I developed solutions to support the engineering operations. I also assisted in system testing, deployment, and cutover. Meanwhile, I prepared and updated the technical documentation and guidelines to ensure compliance with the established governance standard. 
+                        </ResumeWrap>
+                        <ResumeWrap>
+                            <template #icon>
+                                <i class="fa-solid fa-briefcase"></i>
+                            </template>
                             <template #date>Oct 2020 – Jan 2021 (3 months)</template>
                             <template #position>Part-time Student IT Helper</template>
                             <template #organization>

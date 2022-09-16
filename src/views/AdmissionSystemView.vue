@@ -167,6 +167,9 @@
                             <span>Framework: &nbsp;</span>Sails.js
                         </li>
                         <li>
+                            <span>Web Server: &nbsp;</span>Node.js
+                        </li>
+                        <li>
                             <span>Database: &nbsp;</span>MongoDB
                         </li>
                         <li>
