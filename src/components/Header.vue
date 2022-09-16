@@ -44,9 +44,8 @@ export default {
                 }
 
                 // Add box shadow
-                var top = document.getElementById("about").getBoundingClientRect().top;
-                var marginTop = parseInt($('#about').css("marginTop").replace('px', ''))
-                if (window.scrollY > top + marginTop) {
+                console.log("window.scrollY: " + window.scrollY );
+                if (window.scrollY > 200) {
                     $('#navbar_top').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
                 } else {
                     $('#navbar_top').css({ "box-shadow": "none" })
