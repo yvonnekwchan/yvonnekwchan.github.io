@@ -48,13 +48,13 @@ export default {
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 50) {
                     document.getElementById('navbar_top').classList.add('fixed-top');
-                    document.getElementById('navbar-container').classList.add('fixed-top');
+                    //document.getElementById('navbar-container').classList.add('fixed-top');
                     // add padding top to show content behind navbar
                     var navbar_height = document.querySelector('.navbar').offsetHeight;
                     document.body.style.paddingTop = navbar_height + 'px';
                 } else {
                     document.getElementById('navbar_top').classList.remove('fixed-top');
-                    document.getElementById('navbar-container').classList.remove('fixed-top');
+                    //document.getElementById('navbar-container').classList.remove('fixed-top');
                     // remove padding top from body
                     document.body.style.paddingTop = '0';
                 }
@@ -78,77 +78,34 @@ export default {
 <template>
     <div id="header" class="site-header">
         <div class="main-menu" style="margin-top: 8px">
-            <!-- Navigation bar for large or extra-large device -->
-            <div id="topNav" class="d-none d-lg-block">
-                <nav
-                    id="navbar_top"
-                    style="width: 100%;"
-                    class="navbar navbar-expand-lg navbar-light"
-                >
-                    <div class="container">
-                        <div class="navbar-collapse" id="navbarTogglerDemo03">
-                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link"
-                                        @click="scrollToTop(), goToHomeSection()"
-                                    >Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/#about">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/#resume">Resume</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/#projects">Projects</a>
-                                </li>
-                            </ul>
-                        </div>
+            <!-- Navigation bar -->
+            <div id="topNav">
+                <nav id="navbar_top" style="width: 100%;" class="navbar navbar-expand-lg navbar-light">
+
+                    <div class="container text-right">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarTogglerDemo03">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                    <div class="navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" @click="scrollToTop(), goToHomeSection()">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#resume">Resume</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#projects">Projects</a>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
-            </div>
-
-            <!-- Navigation bar for smaller devices -->
-            <div id="topNav" class="d-block d-lg-none">
-                <div id="navbar-container">
-                    <div class="bar-Icon">
-                        <div id="bar1" class="text-right">
-                            <button id="barBtn1" @click="openMenu">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <div id="bar2" class="text-right">
-                            <button id="barBtn2" @click="closeMenu">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <nav id="menu" class="navbar navbar-expand-lg navbar-light">
-                        <div class="container">
-                            <div class="navbar-collapse" id="navbarTogglerDemo03">
-                                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            @click="scrollToTop(), goToHomeSection()"
-                                        >Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/#about">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/#resume">Resume</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/#projects">Projects</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
             </div>
         </div>
     </div>
@@ -218,6 +175,20 @@ export default {
     background-color: #fff;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.text-right {
+    justify-content: end;
+}
+
+.navbar-light .navbar-toggler {
+    color:#929191;
+    border: none;
+    font-size: inherit;
+}
+
+.navbar-light .navbar-toggler:focus {
+    outline: none;
 }
 
 /* #endregion */
