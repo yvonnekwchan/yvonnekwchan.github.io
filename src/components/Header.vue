@@ -3,20 +3,6 @@ import { RouterLink } from 'vue-router'
 export default {
     name: 'Header',
     methods: {
-        openMenu() {
-            document.getElementById('menu').style.display = 'block'
-
-            document.getElementById('bar1').style.display = 'none'
-
-            document.getElementById('bar2').style.display = 'block'
-        },
-        closeMenu() {
-            document.getElementById('menu').style.display = 'none'
-
-            document.getElementById('bar2').style.display = 'none'
-
-            document.getElementById('bar1').style.display = 'block'
-        },
         scrollToTop() {
             window.scrollTo(0, 0);
         },
@@ -48,13 +34,11 @@ export default {
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 50) {
                     document.getElementById('navbar_top').classList.add('fixed-top');
-                    //document.getElementById('navbar-container').classList.add('fixed-top');
                     // add padding top to show content behind navbar
                     var navbar_height = document.querySelector('.navbar').offsetHeight;
                     document.body.style.paddingTop = navbar_height + 'px';
                 } else {
                     document.getElementById('navbar_top').classList.remove('fixed-top');
-                    //document.getElementById('navbar-container').classList.remove('fixed-top');
                     // remove padding top from body
                     document.body.style.paddingTop = '0';
                 }
@@ -64,10 +48,8 @@ export default {
                 var marginTop = parseInt($('#about').css("marginTop").replace('px', ''))
                 if (window.scrollY > top + marginTop) {
                     $('#navbar_top').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
-                    $('#navbar-container').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
                 } else {
                     $('#navbar_top').css({ "box-shadow": "none" })
-                    $('#navbar-container').css({ "box-shadow": "none" })
                 }
             });
         });
@@ -80,17 +62,15 @@ export default {
         <div class="main-menu" style="margin-top: 8px">
             <!-- Navigation bar -->
             <div id="topNav">
-                <nav id="navbar_top" style="width: 100%;" class="navbar navbar-expand-lg navbar-light">
-
+                <nav id="navbar_top" class="navbar navbar-expand-md navbar-light">
                     <div class="container text-right">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarTogglerDemo03">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                    </button>
-                </div>
-
-                    <div class="navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarTogglerDemo03">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" @click="scrollToTop(), goToHomeSection()">Home</a>
                             </li>
@@ -145,23 +125,6 @@ export default {
     list-style: none;
 }
 
-/* #region - Navigation bar for small devices */
-
-#menu {
-    display: none;
-}
-
-#barBtn1,
-#barBtn2 {
-    outline: none;
-    border: none;
-    background: transparent;
-}
-
-#bar2 {
-    display: none;
-}
-
 .fa-bars {
     color: #929191;
 }
@@ -182,7 +145,7 @@ export default {
 }
 
 .navbar-light .navbar-toggler {
-    color:#929191;
+    color: #929191;
     border: none;
     font-size: inherit;
 }
@@ -190,6 +153,4 @@ export default {
 .navbar-light .navbar-toggler:focus {
     outline: none;
 }
-
-/* #endregion */
 </style>
