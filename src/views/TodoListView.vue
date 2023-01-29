@@ -15,7 +15,7 @@
                         Todo List Application
                     </h3>
                     <p class="project-description">
-                        Todo List Application is a mobile application which allows user to organize their tasks
+                        Todo List Application is a mobile application which allows user to organize their tasks.
                     </p>
                     <h5>Technologies used</h5>
                     <ul class="technologies">
@@ -37,7 +37,7 @@
                     <ul>
                         <li>
                             <a
-                                href="https://github.com/yvonnekwchan/university-student-admission-system"
+                                href="https://github.com/yvonnekwchan/to-do-list-application"
                                 target="_blank"
                                 id="github-link"
                             >https://github.com/yvonnekwchan/to-do-list-application</a>
