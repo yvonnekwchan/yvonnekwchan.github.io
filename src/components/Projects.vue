@@ -10,7 +10,7 @@
                             <RouterLink to="/to-do-list" class="" title="Todo List">
                                 <div class="img object-fit overflow-hidden">
                                     <div class="object-fit-cover transform-scale-h">
-                                        <img src="https://hrmcdn-13a1c.kxcdn.com/images/hr-sg/content-images/priya-june-2020-patrick-tay-work-from-home-lead-istock.jpg"
+                                        <img src="../assets/project1.png"
                                             alt="Todo List" class="card-top-img">
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                             <RouterLink to="/real-estate-rental-system"  class="" title="Real Estate Rental System">
                                 <div class="img object-fit overflow-hidden">
                                     <div class="object-fit-cover transform-scale-h">
-                                        <img src="https://d1ngglk168riv7.cloudfront.net/n/wp-content/uploads/2020/10/04182006/Main-Picture-scaled.jpg"
+                                        <img src="../assets/project2.jpg"
                                             alt="Real Estate Rental System" class="card-top-img">
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                 title="University Student Admission System">
                                 <div class="img object-fit overflow-hidden">
                                     <div class="object-fit-cover transform-scale-h"><img
-                                            src="https://images.unsplash.com/photo-1587301669187-732ea66e7617?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHdvcmslMjBmcm9tJTIwaG9tZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                                            src="../assets/project3.jpg"
                                             alt="University Student Admission System" class="card-top-img"></div>
                                 </div>
                             </RouterLink>
