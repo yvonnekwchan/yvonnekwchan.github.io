@@ -69,7 +69,7 @@ export default {
                 }
 
                 // Add box shadow
-                console.log("window.scrollY: " + window.scrollY);
+                //console.log("window.scrollY: " + window.scrollY);
                 if (window.scrollY > 200) {
                     $('#navbar_top').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
                 } else {

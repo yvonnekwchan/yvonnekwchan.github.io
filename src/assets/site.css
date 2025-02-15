@@ -101,6 +101,17 @@ h2 {
     color: #222222;
 }
 
+.card-title {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0px;
+}
+
+.card-title  .svg-inline--fa {
+    font-size: 28px;
+    color: #666;
+}
+
 .position-relative {
     position: relative !important;
 }

@@ -20,4 +20,5 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 @import "./assets/site.css";
+@import "./assets/floating-label.css";
 </style>

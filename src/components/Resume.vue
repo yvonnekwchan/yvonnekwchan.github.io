@@ -98,20 +98,21 @@ export default {
                 <div class="col-lg-9 col-md-12">
                     <div id="page-1" class="page one resume-section">
                         <h3 class="heading">Education</h3>
-                        <ResumeWrap>
-                            <template #icon>
-                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            </template>
-                            <template #date>2017-2021</template>
-                            <template #position>Bachelor in Computer Science</template>
-                            <template #organization>
-                                Hong Kong Baptist
-                                University
-                            </template>
-                            As a computer science graduate,
-                            I have acquired advanced IT knowledge and programming skills, and I wish to
-                            pursue my career in the IT field.
-                        </ResumeWrap>
+                        <div v-for="item in educationObj" :key="item._id">
+                            <ResumeWrap :id="item._id" :position="item.position" :organization="item.organization" :period="item.period" :description="item.description">  
+                                <template #icon>
+                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                </template>
+                                <template #date>{{ item.period }}</template>
+                                <template #position>{{ item.position }}</template>
+                                <template #organization>
+                                    {{ item.organization }}
+                                </template>
+                                <template #description>
+                                    {{ item.description }}
+                                </template>
+                            </ResumeWrap>
+                        </div>
                     </div>
 
                     <div id="page-2" style="padding-top: 50px;" class="page two resume-section">
@@ -126,7 +127,9 @@ export default {
                                 <template #organization>
                                     {{ item.organization }}
                                 </template>
-                                {{ item.description }}
+                                <template #description>
+                                    {{ item.description }}
+                                </template>
                             </ResumeWrap>
                         </div>
                     </div>
@@ -281,10 +284,6 @@ export default {
 .page .heading {
     font-weight: 700;
     margin-bottom: 30px;
-}
-
-.resume-wrap:hover .icon .svg-inline--fa {
-    color: #e6c4bb;
 }
 
 .fa-graduation-cap {
