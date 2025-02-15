@@ -410,7 +410,7 @@ ul li {
 }
 
 .btn {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 1.5px;
     font-size: .81rem;
     padding: 1.56rem 4.75rem;

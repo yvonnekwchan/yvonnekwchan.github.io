@@ -1,11 +1,40 @@
 <script setup>
 import ResumeWrap from './ResumeWrap.vue'
+import { RouterLink, RouterView } from 'vue-router'
+import ResumeService from '../services/ResumeService';
 </script>
 
 <script>
 export default {
     name: 'Resume',
+    data() {
+        return {
+            educationObj: {},
+            experienceObj: {}
+        }
+    },
+    methods: {
+        async getResume() {
+            const response = await ResumeService.getResume()
+
+            if (response.data && response.data.length > 0) {
+                this.educationObj = response.data.filter(d => d.classification === 'education').sort((a, b) => {
+                    if (a.date < b.date) {
+                        return 1;
+                    }
+                });
+                this.experienceObj = response.data.filter(d => d.classification === 'experience').sort((a, b) => {
+                    if (a.date < b.date) {
+                        return 1;
+                    }
+                });
+            } else {
+                console.log("No data found");
+            }
+        }
+    },
     mounted() {
+        this.getResume();
         var naviBtns =
             $("#navi .nav .nav-link");
 
@@ -87,56 +116,19 @@ export default {
 
                     <div id="page-2" style="padding-top: 50px;" class="page two resume-section">
                         <h3 class="heading">Experience</h3>
-                        <ResumeWrap>
-                            <template #icon>
-                                <i class="fa-solid fa-briefcase"></i>
-                            </template>
-                            <template #date>Jun 2021 – Present</template>
-                            <template #position>Solutions Analyst</template>
-                            <template #organization>
-                               The Hong Kong Electric Company, Limited
-                            </template>
-                            I developed solutions to support the engineering operations. I also assisted in system testing, deployment, and cutover. Meanwhile, I prepared and updated the technical documentation and guidelines to ensure compliance with the established governance standard. 
-                        </ResumeWrap>
-                        <ResumeWrap>
-                            <template #icon>
-                                <i class="fa-solid fa-briefcase"></i>
-                            </template>
-                            <template #date>Oct 2020 – Jan 2021 (3 months)</template>
-                            <template #position>Part-time Student IT Helper</template>
-                            <template #organization>
-                                Hong Kong Baptist
-                                Hospital
-                            </template>
-                            I was mainly responsible for developing java applications. I also assisted in
-                            carrying out system tests and conducting user training on system usage.
-                        </ResumeWrap>
-
-                        <ResumeWrap>
-                            <template #icon>
-                                <i class="fa-solid fa-briefcase"></i>
-                            </template>
-                            <template #date>Jun 2020 – Aug 2020 (2 months)</template>
-                            <template #position>IT Intern</template>
-                            <template #organization>Invisible Fun Studio Limited</template>
-                            I experienced the Raspberry Pi environment and enriched my learning experience
-                            on the current web trend. I also assisted in enhancing web-based platforms and
-                            conducting data analysis. These experiences have equipped me with a strong sense
-                            for IT work.
-                        </ResumeWrap>
-
-                        <ResumeWrap>
-                            <template #icon>
-                                <i class="fa-solid fa-briefcase"></i>
-                            </template>
-                            <template #date>Oct 2019 – Mar 2020 (6 months)</template>
-                            <template #position>Part-time IT Intern</template>
-                            <template #organization>Hospital Authority</template>
-                            My duties included providing on-site support service for clinical system roll
-                            out, which allows me to develop my technical consulting skills. I also helped to
-                            design and create an internal web page, which has sharpened my problem-solving
-                            skills.
-                        </ResumeWrap>
+                        <div v-for="item in experienceObj" :key="item._id">
+                            <ResumeWrap>
+                                <template #icon>
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </template>
+                                <template #date>{{ item.period }}</template>
+                                <template #position>{{ item.position }}</template>
+                                <template #organization>
+                                    {{ item.organization }}
+                                </template>
+                                {{ item.description }}
+                            </ResumeWrap>
+                        </div>
                     </div>
 
                     <div id="page-3" style="padding-top: 50px;" class="page three resume-section">

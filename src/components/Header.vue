@@ -1,6 +1,19 @@
 <script>
 import { RouterLink } from 'vue-router'
+
 export default {
+    data() {
+        return {
+            username: localStorage.username || null // Initialize with localStorage value
+        }
+    },
+    watch: {
+        // Watch for changes to localStorage
+        username(newVal) {
+            console.log("local storage is updated: " + newVal);
+            this.username = newVal ? localStorage.username : null;
+        }
+    },
     name: 'Header',
     methods: {
         scrollToTop() {
@@ -8,9 +21,21 @@ export default {
         },
         goToHomeSection() {
             this.$router.push('/');
+        },
+        logout() {
+            localStorage.clear();
+            //window.location.reload(); // refresh the page
+        },
+        updateUsername() {
+            this.username = localStorage.username || null; // Update username from localStorage
         }
     },
     mounted() {
+        this.updateUsername(); // Set initial state from localStorage
+
+        // Listen for changes in localStorage in the same tab
+        window.addEventListener('storage', this.updateUsername);
+
         /* Code for changing active 
   link on Scrolling - Top navigation bar*/
         $(window).scroll(function () {
@@ -44,7 +69,7 @@ export default {
                 }
 
                 // Add box shadow
-                console.log("window.scrollY: " + window.scrollY );
+                console.log("window.scrollY: " + window.scrollY);
                 if (window.scrollY > 200) {
                     $('#navbar_top').css({ "box-shadow": "0 10px 15px rgb(25 25 25 / 10%)" })
                 } else {
@@ -58,11 +83,16 @@ export default {
 
 <template>
     <div id="header" class="site-header">
+        <span>{{ publishedBooksMessage }}</span>
         <div class="main-menu" style="margin-top: 8px">
             <!-- Navigation bar -->
             <div id="topNav">
                 <nav id="navbar_top" class="navbar navbar-expand-md navbar-light">
-                    <div class="container text-right">
+                    <div v-if="username" id="logoutText">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <a @click="logout()">Logout</a>
+                    </div>
+                    <div class="container text-right mobile-nav">
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarTogglerDemo03">
                             <i class="fa fa-bars" aria-hidden="true"></i>
@@ -91,7 +121,29 @@ export default {
 </template>
 
 <style scoped>
-.svg-inline--fa {
+@media (min-width: 768px) {
+    .mobile-nav {
+        display: none;
+    }
+
+    #logoutText {
+        margin-bottom: 1.39rem;
+    }
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+#logoutText {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    padding: 0.05rem 0.5rem;
+    line-height: 1.23;
+}
+
+.svg-inline--fa.fa-bars{
     height: 1.7em;
 }
 
@@ -126,6 +178,10 @@ export default {
 
 .fa-bars {
     color: #929191;
+}
+
+.fa-arrow-right-from-bracket {
+    padding-right: 5px;
 }
 
 .bar-Icon {
