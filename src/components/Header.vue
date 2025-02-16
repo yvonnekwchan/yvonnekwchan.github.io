@@ -1,21 +1,14 @@
 <script>
 import { RouterLink } from 'vue-router'
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    data() {
-        return {
-            username: localStorage.getItem('username') || null // Initialize with localStorage value
-        }
-    },
-    watch: {
-        // Watch for changes to localStorage
-        username(newVal) {
-            console.log("local storage is updated: " + newVal);
-            this.username = newVal ? localStorage.username : null;
-        }
+    computed: {
+        ...mapGetters(['username'])
     },
     name: 'Header',
     methods: {
+        ...mapActions(['updateUsername']),
         scrollToTop() {
             window.scrollTo(0, 0);
         },
@@ -23,19 +16,12 @@ export default {
             this.$router.push('/');
         },
         logout() {
+            this.updateUsername(null);
             localStorage.removeItem('username');
             localStorage.removeItem('isAdmin');
-            this.username = null;
-            //window.location.reload(); // refresh the page
-        },
-        updateUsername() {
-            this.username = localStorage.getItem('username'); // Update username from localStorage
         }
     },
     mounted() {
-        // Listen for changes in localStorage in the same tab
-        window.addEventListener('storage', this.updateUsername);
-
         /* Code for changing active 
   link on Scrolling - Top navigation bar*/
         $(window).scroll(function () {
@@ -90,7 +76,7 @@ export default {
                 <nav id="navbar_top" class="navbar navbar-expand-md navbar-light">
                     <div v-if="username" id="logoutText">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <a @click="logout()">Logout</a>
+                        <a v-if="$store.state.username != null"  @click="logout()">Logout</a>
                     </div>
                     <div class="container text-right mobile-nav">
                         <button class="navbar-toggler" type="button" data-toggle="collapse"

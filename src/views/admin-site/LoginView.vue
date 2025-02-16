@@ -1,7 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
 import AuthenticationService from '../../services/AuthenticationSevice';
 import bcrypt from 'bcryptjs';
+import { mapGetters, mapActions } from 'vuex';
+import { useStore } from 'vuex';
+
 </script>
 
 <script>
@@ -12,35 +15,25 @@ export default {
       password: ''
     }
   },
-  watch: {
-    email(value) {
-      console.log('email has changed: ', value);
-    }
-  },
-  mounted() {
-    setTimeout(() => {
-
-    }, 1000);
-  },
   methods: {
+    ...mapActions(['updateUsername']),
     async login() {
       const saltRounds = 10;
       const hashedPassword = bcrypt.hashSync(this.password, saltRounds);
       const response = await AuthenticationService.login({
         email: this.email,
         password: hashedPassword
-      })
+      });
 
       console.log("Message: " + response.data.message);
 
       if (response.status === 200) {
-        localStorage.username = this.email;
-        //localStorage.setItem('username', this.email);
-        localStorage.isAdmin = response.data.isAdmin;
+        localStorage.setItem('username', this.email);
+        localStorage.setItem('isAdmin', response.data.isAdmin);
+
+        this.updateUsername(this.email);
 
         this.$router.push('/');
-
-        //window.location.reload(); // refresh the page
       } else {
         alert("Alert: " + response.data.message);
       }
@@ -48,7 +41,6 @@ export default {
   }
 }
 </script>
-
 
 <template>
   <div class="container">
@@ -66,12 +58,12 @@ export default {
       </div>
 
       <button type="submit" @click="login" class="btn btn-primary" id="login-btn">Login</button>
+      <!-- $store.dispatch('updateUsername', this.email); -->
     </form>
   </div>
 </template>
 
 <style scoped>
-/* @import "../../assets/site.css"; */
 #login-btn {
   background: #e6c4bb;
   border-color: #e6c4bb;
