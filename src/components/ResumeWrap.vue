@@ -4,7 +4,13 @@ import ResumeService from '../services/ResumeService';
 
 <script>
 export default {
-    props: { id: Number, position: String, organization: String, period: String, description: String },
+    props: {
+        id: String,
+        position: String,
+        organization: String,
+        period: String,
+        description: String
+    },
     data() {
         return {
             positionInput: this.position, // Initialize with prop value
@@ -35,6 +41,7 @@ export default {
             console.log("Message: " + response.data.message);
 
             if (response.status === 200) {
+                this.$emit('resumeUpdated');
                 this.backToViewOnlyMode();
                 //window.location.reload(); // refresh the page
             } else {
@@ -116,6 +123,7 @@ export default {
 <style scoped>
 .action-button-group {
     display: flex;
+    justify-content: flex-end;
 }
 
 .action-button-group.view-only-mode {
@@ -126,6 +134,7 @@ export default {
     color: #e6c4BB;
     text-transform: uppercase;
     font-weight: bold;
+    padding: 1.56rem 30px !important;
 }
 
 textarea.form-control {

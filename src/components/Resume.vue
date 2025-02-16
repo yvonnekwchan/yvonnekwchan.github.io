@@ -99,7 +99,8 @@ export default {
                     <div id="page-1" class="page one resume-section">
                         <h3 class="heading">Education</h3>
                         <div v-for="item in educationObj" :key="item._id">
-                            <ResumeWrap :id="item._id" :position="item.position" :organization="item.organization" :period="item.period" :description="item.description">  
+                            <ResumeWrap :id="item._id" :position="item.position" :organization="item.organization"
+                                :period="item.period" :description="item.description" @resumeUpdated="getResume">
                                 <template #icon>
                                     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                                 </template>
@@ -113,12 +114,17 @@ export default {
                                 </template>
                             </ResumeWrap>
                         </div>
+
+                        <div class="add-resume-wrap">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
                     </div>
 
                     <div id="page-2" style="padding-top: 50px;" class="page two resume-section">
                         <h3 class="heading">Experience</h3>
                         <div v-for="item in experienceObj" :key="item._id">
-                            <ResumeWrap>
+                            <ResumeWrap :id="item._id" :position="item.position" :organization="item.organization"
+                            :period="item.period" :description="item.description" @resumeUpdated="getResume">
                                 <template #icon>
                                     <i class="fa-solid fa-briefcase"></i>
                                 </template>
@@ -226,6 +232,21 @@ export default {
 </template>
 
 <style scoped>
+.add-resume-wrap {
+    width: 100%;
+    height: 100px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ccc;
+    cursor: pointer;
+}
+
+.add-resume-wrap i {
+    font-size: 26px;
+}
+
 #navi li a {
     color: #000000;
     margin: 0;

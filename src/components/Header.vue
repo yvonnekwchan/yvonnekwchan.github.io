@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 export default {
     data() {
         return {
-            username: localStorage.username || null // Initialize with localStorage value
+            username: localStorage.getItem('username') || null // Initialize with localStorage value
         }
     },
     watch: {
@@ -23,16 +23,16 @@ export default {
             this.$router.push('/');
         },
         logout() {
-            localStorage.clear();
+            localStorage.removeItem('username');
+            localStorage.removeItem('isAdmin');
+            this.username = null;
             //window.location.reload(); // refresh the page
         },
         updateUsername() {
-            this.username = localStorage.username || null; // Update username from localStorage
+            this.username = localStorage.getItem('username'); // Update username from localStorage
         }
     },
     mounted() {
-        this.updateUsername(); // Set initial state from localStorage
-
         // Listen for changes in localStorage in the same tab
         window.addEventListener('storage', this.updateUsername);
 
@@ -83,7 +83,7 @@ export default {
 
 <template>
     <div id="header" class="site-header">
-        <span>{{ publishedBooksMessage }}</span>
+        <!-- <p class="username">Hello, {{ store.username }}</p> -->
         <div class="main-menu" style="margin-top: 8px">
             <!-- Navigation bar -->
             <div id="topNav">
@@ -143,7 +143,7 @@ export default {
     line-height: 1.23;
 }
 
-.svg-inline--fa.fa-bars{
+.svg-inline--fa.fa-bars {
     height: 1.7em;
 }
 

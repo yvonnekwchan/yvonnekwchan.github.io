@@ -35,6 +35,7 @@ export default {
 
       if (response.status === 200) {
         localStorage.username = this.email;
+        //localStorage.setItem('username', this.email);
         localStorage.isAdmin = response.data.isAdmin;
 
         this.$router.push('/');
