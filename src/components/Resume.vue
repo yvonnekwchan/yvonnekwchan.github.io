@@ -10,12 +10,36 @@ export default {
     data() {
         return {
             educationObj: {},
-            experienceObj: {}
+            experienceObj: {},
+            tempEducationObj: [],
+            count: 0
         }
     },
     methods: {
+        addEducation() {
+            this.incrementCount();
+            this.tempEducationObj.push({
+                id: 0,
+                tempIndex: this.count,
+                position: '',
+                organization: '',
+                period: '',
+                description: ''
+            })
+            console.log("Added an object");
+        },
+        incrementCount() {
+            this.count = this.count + 1;
+            console.log("this.count: " + this.count);
+        },
+        cancelCreating: function (tempObjIndex) {
+            console.log("Deleted temp object at index " + tempObjIndex)
+            this.tempEducationObj = this.tempEducationObj.filter((item) => item.tempIndex != tempObjIndex);
+            this.tempEducationObj.forEach((element) => console.log("tempIndex of remaining element" + element.tempIndex));
+            console.log("tempEducationObj count:" + this.tempEducationObj.length);
+        },
         async getResume() {
-            const response = await ResumeService.getResume()
+            const response = await ResumeService.getResume();
 
             if (response.data && response.data.length > 0) {
                 this.educationObj = response.data.filter(d => d.classification === 'education').sort((a, b) => {
@@ -99,8 +123,9 @@ export default {
                     <div id="page-1" class="page one resume-section">
                         <h3 class="heading">Education</h3>
                         <div v-for="item in educationObj" :key="item._id">
-                            <ResumeWrap :id="item._id" :position="item.position" :organization="item.organization"
-                                :period="item.period" :description="item.description" @resumeUpdated="getResume">
+                            <ResumeWrap :openInEditMode=false :id="item._id" :position="item.position"
+                                :organization="item.organization" :period="item.period" :description="item.description"
+                                @resumeUpdated="getResume">
                                 <template #icon>
                                     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                                 </template>
@@ -115,16 +140,37 @@ export default {
                             </ResumeWrap>
                         </div>
 
-                        <div class="add-resume-wrap">
-                            <i class="fa-solid fa-plus"></i>
+                        <div v-for="item in tempEducationObj" :key="item._id">
+                            <ResumeWrap :openInEditMode=true :index=item.tempIndex :id="item._id" :position="item.position"
+                                :organization="item.organization" :period="item.period" :description="item.description"
+                                @resumeUpdated="getResume" @cancel="cancelCreating">
+                                <template #icon>
+                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                </template>
+                                <template #date>{{ item.period }}</template>
+                                <template #position>{{ item.position }}</template>
+                                <template #organization>
+                                    {{ item.organization }}
+                                </template>
+                                <template #description>
+                                    {{ item.description }}
+                                </template>
+                            </ResumeWrap>
                         </div>
+
+                        <a @click="addEducation()">
+                            <div class="add-resume-wrap">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </a>
                     </div>
 
                     <div id="page-2" style="padding-top: 50px;" class="page two resume-section">
                         <h3 class="heading">Experience</h3>
                         <div v-for="item in experienceObj" :key="item._id">
-                            <ResumeWrap :id="item._id" :position="item.position" :organization="item.organization"
-                            :period="item.period" :description="item.description" @resumeUpdated="getResume">
+                            <ResumeWrap :openInEditMode=false :id="item._id" :position="item.position"
+                                :organization="item.organization" :period="item.period" :description="item.description"
+                                @resumeUpdated="getResume">
                                 <template #icon>
                                     <i class="fa-solid fa-briefcase"></i>
                                 </template>

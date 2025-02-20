@@ -1,24 +1,33 @@
 <script setup>
 import ResumeService from '../services/ResumeService';
+import { mapGetters, mapActions } from 'vuex';
 </script>
 
 <script>
 export default {
     props: {
+        index: Number,
+        openInEditMode: Boolean,
         id: String,
         position: String,
         organization: String,
         period: String,
         description: String
     },
+    emits: ['resumeUpdated', 'cancel'],
     data() {
         return {
             positionInput: this.position, // Initialize with prop value
             organizationInput: this.organization,
             periodInput: this.period,
             descriptionInput: this.description,
-            inEditMode: false
+            inEditMode: this.openInEditMode,
+            isTempObj: this.openInEditMode,
+            tempObjIndex: this.index
         }
+    },
+    computed: {
+        ...mapGetters(['username'])
     },
     methods: {
         switchToEditMode() {
@@ -26,13 +35,18 @@ export default {
             console.log("Switched to edit mode.")
         },
         backToViewOnlyMode() {
-            this.inEditMode = false;
-            console.log("Switched to view-only mode.")
+            if (this.isTempObj) {
+                console.log("Cancel adding new resume. " + this.tempObjIndex)
+                this.$emit('cancel', this.tempObjIndex);
+            } else {
+                this.inEditMode = false;
+                console.log("Switched to view-only mode.")
+            }
         },
         async updateResume() {
             const response = await ResumeService.updateResume({
                 id: this.id,
-                position: this.positionInput, 
+                position: this.positionInput,
                 organization: this.organizationInput,
                 period: this.periodInput,
                 description: this.descriptionInput,
@@ -53,8 +67,9 @@ export default {
 </script>
 
 <template>
+    {{ tempObjIndex }}
     <div class="resume-wrap" :class="{ 'view-only-mode': !inEditMode, 'edit-mode': inEditMode }">
-        <div class="card-title" :class="{ 'edit-mode': inEditMode }">
+        <div v-if="$store.state.username != null" class="card-title" :class="{ 'edit-mode': inEditMode }">
             <a @click="switchToEditMode()"><i class="fa-regular fa-pen-to-square"></i></a>
         </div>
         <div class="transition d-flex" style="margin-top: 10px;">
@@ -111,8 +126,13 @@ export default {
                         </div>
                     </div>
                     <div class="action-button-group" :class="{ 'view-only-mode': !inEditMode }">
-                        <button type="submit" @click="updateResume()" class="btn btn-link">Save</button>
-                        <button type="button" @click="backToViewOnlyMode()" class="btn btn-link">Cancel</button>
+                        <div class="left">
+                            <button type="submit" class="btn btn-link">Delete</button>
+                        </div>
+                        <div class="right">
+                            <button type="submit" @click="updateResume()" class="btn btn-link">Save</button>
+                            <button type="button" @click="backToViewOnlyMode()" class="btn btn-link">Cancel</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -123,7 +143,11 @@ export default {
 <style scoped>
 .action-button-group {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.action-button-group .left{
+    color: #888
 }
 
 .action-button-group.view-only-mode {
