@@ -3,7 +3,6 @@ import { RouterLink, RouterView } from 'vue-router';
 import AuthenticationService from '../../services/AuthenticationSevice';
 import bcrypt from 'bcryptjs';
 import { mapGetters, mapActions } from 'vuex';
-import { useStore } from 'vuex';
 
 </script>
 

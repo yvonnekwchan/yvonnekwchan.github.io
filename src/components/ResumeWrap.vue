@@ -32,15 +32,14 @@ export default {
     methods: {
         switchToEditMode() {
             this.inEditMode = true;
-            console.log("Switched to edit mode.")
+            console.log("Switched to edit mode.");
         },
         backToViewOnlyMode() {
             if (this.isTempObj) {
-                console.log("Cancel adding new resume. " + this.tempObjIndex)
                 this.$emit('cancel', this.tempObjIndex);
             } else {
                 this.inEditMode = false;
-                console.log("Switched to view-only mode.")
+                console.log("Switched to view-only mode.");
             }
         },
         async updateResume() {
@@ -49,25 +48,22 @@ export default {
                 position: this.positionInput,
                 organization: this.organizationInput,
                 period: this.periodInput,
-                description: this.descriptionInput,
-            })
+                description: this.descriptionInput
+            });
 
             console.log("Message: " + response.data.message);
-
             if (response.status === 200) {
                 this.$emit('resumeUpdated');
                 this.backToViewOnlyMode();
-                //window.location.reload(); // refresh the page
             } else {
-                alert("Alert: " + response.data.message);
+                console.error("Failed to update resume");
             }
-        },
+        }
     }
-}
+};
 </script>
 
 <template>
-    {{ tempObjIndex }}
     <div class="resume-wrap" :class="{ 'view-only-mode': !inEditMode, 'edit-mode': inEditMode }">
         <div v-if="$store.state.username != null" class="card-title" :class="{ 'edit-mode': inEditMode }">
             <a @click="switchToEditMode()"><i class="fa-regular fa-pen-to-square"></i></a>
@@ -146,7 +142,7 @@ export default {
     justify-content: space-between;
 }
 
-.action-button-group .left{
+.action-button-group .left {
     color: #888
 }
 
