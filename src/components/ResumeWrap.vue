@@ -12,7 +12,8 @@ export default {
         position: String,
         organization: String,
         period: String,
-        description: String
+        description: String,
+        classification: String
     },
     emits: ['resumeUpdated', 'cancel'],
     data() {
@@ -23,7 +24,8 @@ export default {
             descriptionInput: this.description,
             inEditMode: this.openInEditMode,
             isTempObj: this.openInEditMode,
-            tempObjIndex: this.index
+            tempObjIndex: this.index,
+            isSaving: false // Add a flag to prevent multiple submissions
         }
     },
     computed: {
@@ -34,29 +36,71 @@ export default {
             this.inEditMode = true;
             console.log("Switched to edit mode.");
         },
-        backToViewOnlyMode() {
+        cancel() {
             if (this.isTempObj) {
-                this.$emit('cancel', this.tempObjIndex);
+                this.$emit('cancel', this.tempObjIndex, this.classification);
             } else {
                 this.inEditMode = false;
                 console.log("Switched to view-only mode.");
             }
         },
-        async updateResume() {
-            const response = await ResumeService.updateResume({
-                id: this.id,
-                position: this.positionInput,
-                organization: this.organizationInput,
-                period: this.periodInput,
-                description: this.descriptionInput
+        async remove(){
+            const response = await ResumeService.deleteResume({
+                id: this.id
             });
 
             console.log("Message: " + response.data.message);
             if (response.status === 200) {
                 this.$emit('resumeUpdated');
-                this.backToViewOnlyMode();
             } else {
-                console.error("Failed to update resume");
+                console.error("Failed to delete resume");
+            }
+        },
+        async save() {
+            if (this.isSaving) return; // Prevent multiple submissions
+            this.isSaving = true;
+
+            if (this.isTempObj) {
+                if (this.positionInput && this.organizationInput && this.periodInput && this.descriptionInput) {
+                    const response = await ResumeService.addResume({
+                        position: this.positionInput,
+                        organization: this.organizationInput,
+                        period: this.periodInput,
+                        description: this.descriptionInput,
+                        classification: this.classification
+                    });
+
+                    if (response.status === 200) {
+
+                        console.log("Successfully added resume.");
+
+                        //remove temp object
+                        this.cancel();
+
+                        //retrieve latest resume list
+                        this.$emit('resumeUpdated');
+                    } else {
+                        console.error("Failed to add resume");
+                    }
+                }
+            }
+            else {
+                const response = await ResumeService.updateResume({
+                    id: this.id,
+                    position: this.positionInput,
+                    organization: this.organizationInput,
+                    period: this.periodInput,
+                    description: this.descriptionInput
+                });
+
+                console.log("Message: " + response.data.message);
+                if (response.status === 200) {
+                    this.$emit('resumeUpdated');
+                    this.cancel();
+                    
+                } else {
+                    console.error("Failed to update resume");
+                }
             }
         }
     }
@@ -76,7 +120,7 @@ export default {
             </div>
 
             <div class="text pl-3">
-                <form @submit.prevent="login">
+                <form @submit.prevent="updateResume">
                     <div>
                         <span class="date card-text" :class="{ 'edit-mode': inEditMode }">
                             <slot name="date"></slot>
@@ -123,11 +167,11 @@ export default {
                     </div>
                     <div class="action-button-group" :class="{ 'view-only-mode': !inEditMode }">
                         <div class="left">
-                            <button type="submit" class="btn btn-link">Delete</button>
+                            <button type="submit" @click="remove()" class="btn btn-link" :disabled="isTempObj">Delete</button>
                         </div>
                         <div class="right">
-                            <button type="submit" @click="updateResume()" class="btn btn-link">Save</button>
-                            <button type="button" @click="backToViewOnlyMode()" class="btn btn-link">Cancel</button>
+                            <button type="submit" @click="save()" class="btn btn-link">Save</button>
+                            <button type="button" @click="cancel()" class="btn btn-link">Cancel</button>
                         </div>
                     </div>
                 </form>
