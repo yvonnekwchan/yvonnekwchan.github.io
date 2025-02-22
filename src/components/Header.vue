@@ -4,11 +4,11 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters(['username'])
+        ...mapGetters(['isAdmin'])
     },
     name: 'Header',
     methods: {
-        ...mapActions(['updateUsername']),
+        ...mapActions(['updateIsAdmin']),
         scrollToTop() {
             window.scrollTo(0, 0);
         },
@@ -16,7 +16,7 @@ export default {
             this.$router.push('/');
         },
         logout() {
-            this.updateUsername(null);
+            this.updateIsAdmin(null);
             localStorage.removeItem('username');
             localStorage.removeItem('isAdmin');
         }
@@ -69,14 +69,13 @@ export default {
 
 <template>
     <div id="header" class="site-header">
-        <!-- <p class="username">Hello, {{ store.username }}</p> -->
         <div class="main-menu" style="margin-top: 8px">
             <!-- Navigation bar -->
             <div id="topNav">
                 <nav id="navbar_top" class="navbar navbar-expand-md navbar-light">
-                    <div v-if="username" id="logoutText">
+                    <div v-if="isAdmin" id="logoutText">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <a v-if="$store.state.username != null"  @click="logout()">Logout</a>
+                        <a v-if="$store.state.isAdmin != null"  @click="logout()">Logout</a>
                     </div>
                     <div class="container text-right mobile-nav">
                         <button class="navbar-toggler" type="button" data-toggle="collapse"

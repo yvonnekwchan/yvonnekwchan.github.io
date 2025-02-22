@@ -2,24 +2,25 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    username: localStorage.getItem('username') || null
+    username: localStorage.getItem('username') || null,
+    isAdmin: localStorage.getItem('isAdmin') || null,
   },
   mutations: {
-    setUsername(state, username) {
-      state.username = username;
-      if (username) {
-        localStorage.setItem('username', username);
+    setIsAdmin(state, isAdmin) {
+      state.isAdmin = isAdmin;
+      if (isAdmin) {
+        localStorage.setItem('isAdmin', isAdmin);
       } else {
-        localStorage.removeItem('username');
+        localStorage.removeItem('isAdmin');
       }
     }
   },
   actions: {
-    updateUsername({ commit }, username) {
-      commit('setUsername', username);
+    updateIsAdmin({ commit }, isAdmin) {
+      commit('setIsAdmin', isAdmin);
     }
   },
   getters: {
-    username: state => state.username
+    isAdmin: state => state.isAdmin
   }
 });

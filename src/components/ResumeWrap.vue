@@ -29,7 +29,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['username'])
+        ...mapGetters(['isAdmin'])
     },
     methods: {
         switchToEditMode() {
@@ -109,7 +109,7 @@ export default {
 
 <template>
     <div class="resume-wrap" :class="{ 'view-only-mode': !inEditMode, 'edit-mode': inEditMode }">
-        <div v-if="$store.state.username != null" class="card-title" :class="{ 'edit-mode': inEditMode }">
+        <div v-if="$store.state.isAdmin != null" class="card-title" :class="{ 'edit-mode': inEditMode }">
             <a @click="switchToEditMode()"><i class="fa-regular fa-pen-to-square"></i></a>
         </div>
         <div class="transition d-flex" style="margin-top: 10px;">

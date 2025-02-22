@@ -15,7 +15,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['updateUsername']),
+    ...mapActions(['updateIsAdmin']),
     async login() {
       const saltRounds = 10;
       const hashedPassword = bcrypt.hashSync(this.password, saltRounds);
@@ -30,7 +30,7 @@ export default {
         localStorage.setItem('username', this.email);
         localStorage.setItem('isAdmin', response.data.isAdmin);
 
-        this.updateUsername(this.email);
+        this.updateIsAdmin(response.data.isAdmin);
 
         this.$router.push('/');
       } else {
@@ -57,7 +57,7 @@ export default {
       </div>
 
       <button type="submit" @click="login" class="btn btn-primary" id="login-btn">Login</button>
-      <!-- $store.dispatch('updateUsername', this.email); -->
+      <!-- $store.dispatch('updateIsAdmin', this.email); -->
     </form>
   </div>
 </template>

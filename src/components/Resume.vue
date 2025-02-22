@@ -18,7 +18,7 @@ export default {
         };
     },
     computed: {
-        ...mapGetters(['username'])
+        ...mapGetters(['isAdmin'])
     },
     methods: {
         addResume(classification) {
@@ -169,7 +169,7 @@ export default {
                             </ResumeWrap>
                         </div>
 
-                        <a v-if="$store.state.username != null" @click="addResume('education')">
+                        <a v-if="$store.state.isAdmin != null" @click="addResume('education')">
                             <div class="add-resume-wrap">
                                 <i class="fa-solid fa-plus"></i>
                             </div>
@@ -216,7 +216,7 @@ export default {
                         </ResumeWrap>
                     </div>
 
-                    <a v-if="$store.state.username != null" @click="addResume('experience')">
+                    <a v-if="$store.state.isAdmin != null" @click="addResume('experience')">
                         <div class="add-resume-wrap">
                             <i class="fa-solid fa-plus"></i>
                         </div>
