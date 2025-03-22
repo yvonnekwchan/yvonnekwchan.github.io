@@ -102,6 +102,8 @@ export default {
                     console.error("Failed to update resume");
                 }
             }
+
+            this.isSaving = false;
         }
     }
 };
